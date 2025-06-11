@@ -9,10 +9,11 @@
 body {
     background: linear-gradient(135deg, #1a1a4c 0%, #4c1a4c 100%);
     color: white;
-    min-height: 100vh;
+    height: 100%;
     display: flex;
     flex-direction: column;
 }
+
 
 /* 弹窗提示样式 */
 .toast {
@@ -224,6 +225,8 @@ header {
     background: rgba(255, 255, 255, 0.3);
 }
 
+
+
 /* 一言样式 */
 .hitokoto-container {
     margin: 15px auto 25px;
@@ -308,6 +311,7 @@ footer {
     color: rgba(255, 255, 255, 0.7);
     text-align: center;
     padding: 10px 0;
+	flex: 1;
 }
 
 /* 移动端适配 */
