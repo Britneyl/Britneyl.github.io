@@ -221,5 +221,3 @@ appItems.forEach(item => {
         }, 1200);
     });
 });
-
-console.log( "妈的法克!" );
