@@ -196,15 +196,7 @@ const appLinks = {
     'WeChat': 'https://u.wechat.com/MKfJdmPyCBZB7Bb84ABiy0U?s=2',
     'QQ': 'https://im.qq.com',
     'OpenWRT': 'https://openwrt.org',
-    'Blog': '#',
-    'Portainer': 'https://www.portainer.io',
-    'JD': 'https://www.jd.com',
-    'PostgresqI': 'https://www.postgresql.org',
-    'Sun-Panel': '#',
-    'Nextcloud': 'https://nextcloud.com',
-    'Nginx': 'https://nginx.org',
-    'Docker': 'https://www.docker.com',
-    'HomeAssistant': 'https://www.home-assistant.io'
+    'Blog': '#'
 };
 
 appItems.forEach(item => {
