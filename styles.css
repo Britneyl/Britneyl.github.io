@@ -301,11 +301,15 @@ header {
 
 /* 底部样式 */
 footer {
-    margin-top: 40px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-
+    backdrop-filter: blur(5px);
+    z-index: 999;
 }
 
 .copyright {
