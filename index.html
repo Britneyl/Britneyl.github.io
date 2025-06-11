@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>导航页</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 顶部标题和时间 -->
+        <header>
+            <div class="header-left">
+                <div class="avatar">
+                    <img src="https://api.dicebear.com/6.x/micah/svg?seed=Felix" alt="头像">
+                </div>
+                <div class="user-info">
+                    <h3 class="nickname">br1tn0y</h3>
+                    <p class="user-desc">欢迎回来</p>
+                </div>
+            </div>
+            <div class="header-right">
+                <h1 class="logo">Br1tn0y<span id="time">00:00</span></h1>
+                <p id="date">正在加载日期...</p>
+            </div>
+        </header>
+
+        <!-- 搜索栏 -->
+        <div class="search-box">
+            <i class="fa fa-search"></i>
+            <input type="text" placeholder="搜索应用...">
+            <button><i class="fa fa-arrow-right"></i></button>
+        </div>
+        <div class="search-tips">
+            输入应用名称进行搜索
+        </div>
+
+        <!-- 一言显示 -->
+        <div class="hitokoto-container">
+            <p id="hitokoto-text">加载中...</p>
+            <p id="hitokoto-from"></p>
+        </div>
+
+        <!-- 应用区域 -->
+        <div class="app-section">
+            <h2>APP</h2>
+            <div class="app-grid">
+                <!-- 第一行 -->
+                <div class="app-item">
+                    <div class="app-icon" style="background-color: #ff7070;">
+                        <i class="fa fa-play-circle"></i>
+                    </div>
+                    <p>bilibili</p>
+                </div>
+                <div class="app-item">
+                    <div class="app-icon" style="background-color: #70a1ff;">
+                        <i class="fa fa-codepen"></i>
+                    </div>
+                    <p>Jellyfin</p>
+                </div>
+                <div class="app-item">
+                    <div class="app-icon" style="background-color: #7bed9f;">
+                        <i class="fa fa-music"></i>
+                    </div>
+                    <p>iKuai</p>
+                </div>
+                <div class="app-item">
+                    <div class="app-icon" style="background-color: #5352ed;">
+                        <i class="fa fa-compass"></i>
+                    </div>
+                    <p>Navidrome</p>
+                </div>
+                <div class="app-item">
+                    <div class="app-icon" style="background-color: #ff9f43;">
+                        <i class="fa fa-linux"></i>
+                    </div>
+                    <p>ubuntu</p>
+                </div>
+                
+                <!-- 第二行 -->
+                <div class="app-item">
+                    <div class="app-icon" style="background-color: #1e90ff;">
+                        <i class="fa fa-code"></i>
+                    </div>
+                    <p>VSCode</p>
+                </div>
+                <div class="app-item">
+                    <div class="app-icon" style="background-color: #4b7bec;">
+                        <i class="fa fa-file-text"></i>
+                    </div>
+                    <p>讯息</p>
+                </div>
+                <div class="app-item">
+                    <div class="app-icon" style="background-color: #5352ed;">
+                        <i class="fa fa-windows"></i>
+                    </div>
+                    <p>windows</p>
+                </div>
+                <div class="app-item">
+                    <div class="app-icon" style="background-color: #2ed573;">
+                        <i class="fa fa-comments"></i>
+                    </div>
+                    <p>WeChat</p>
+                </div>
+                <div class="app-item">
+                    <div class="app-icon" style="background-color: #70a1ff;">
+                        <i class="fa fa-qq"></i>
+                    </div>
+                    <p>QQ</p>
+                </div>
+                
+                <!-- 第三行 -->
+                <div class="app-item">
+                    <div class="app-icon" style="background-color: #ff6b81;">
+                        <i class="fa fa-wifi"></i>
+                    </div>
+                    <p>OpenWRT</p>
+                </div>
+                <div class="app-item">
+                    <div class="app-icon" style="background-color: #ff7f50;">
+                        <i class="fa fa-rss"></i>
+                    </div>
+                    <p>Blog</p>
+                </div>
+                <div class="app-item">
+                    <div class="app-icon" style="background-color: #5ac8fa;">
+                        <i class="fa fa-database"></i>
+                    </div>
+                    <p>Portainer</p>
+                </div>
+                <div class="app-item">
+                    <div class="app-icon" style="background-color: #ff6348;">
+                        <i class="fa fa-jsfiddle"></i>
+                    </div>
+                    <p>JD</p>
+                </div>
+                <div class="app-item">
+                    <div class="app-icon" style="background-color: #48dbfb;">
+                        <i class="fa fa-table"></i>
+                    </div>
+                    <p>PostgresqI</p>
+                </div>
+                
+                <!-- 第四行 -->
+                <div class="app-item">
+                    <div class="app-icon" style="background-color: #3742fa;">
+                        <i class="fa fa-sun-o"></i>
+                    </div>
+                    <p>Sun-Panel</p>
+                </div>
+                <div class="app-item">
+                    <div class="app-icon" style="background-color: #2ed573;">
+                        <i class="fa fa-cloud"></i>
+                    </div>
+                    <p>Nextcloud</p>
+                </div>
+                <div class="app-item">
+                    <div class="app-icon" style="background-color: #3cb371;">
+                        <i class="fa fa-server"></i>
+                    </div>
+                    <p>Nginx</p>
+                </div>
+                <div class="app-item">
+                    <div class="app-icon" style="background-color: #1e90ff;">
+                        <i class="fa fa-ship"></i>
+                    </div>
+                    <p>Docker</p>
+                </div>
+                <div class="app-item">
+                    <div class="app-icon" style="background-color: #00a8ff;">
+                        <i class="fa fa-home"></i>
+                    </div>
+                    <p>HomeAssistant</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 底部 -->
+        <footer>
+            <div class="copyright">
+                &copy; 2023-2024 Sun-Panel 导航 | All Rights Reserved
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
