@@ -10,6 +10,14 @@
 
   <!-- Font Awesome 图标库 -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+
+  <!-- Animate.css 动画 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <!-- 引入 jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+  <!-- 引入 Bootstrap JS Bundle（含 Popper） -->
+  <script src="https://cdn.bootcdn.net/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
   <div class="container">
@@ -133,18 +141,14 @@
     <!-- 微信二维码模态框 -->
     <div class="modal fade" id="wechatModal" tabindex="-1" aria-labelledby="wechatModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content animate__animated animate__pulse" style="border-radius: 12px; background-color: rgba(30, 30, 60, 0.95);">
+        <div class="modal-content" style="background-color: rgba(30, 30, 60, 0.95); border-radius: 12px;">
           <div class="modal-header">
             <h5 class="modal-title" id="wechatModalLabel">扫码联系我</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div class="modal-body">
-            <div class="qr-container">
-              <img src="img/wechat-qr.png" alt="微信二维码" class="qr-img">
-              <img src="img/donate-qr.png" alt="打赏二维码" class="qr-img">
-            </div>
+          <div class="modal-body text-center">
+            <img src="img/wechat-qr.png" alt="微信二维码" class="qr-img">
+            <img src="img/donate-qr.png" alt="打赏二维码" class="qr-img">
           </div>
         </div>
       </div>

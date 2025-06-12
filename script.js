@@ -173,20 +173,23 @@ const appItems = document.querySelectorAll('.app-item');
 
 appItems.forEach(item => {
     item.addEventListener('click', () => {
-        const appName = item.querySelector('p').textContent;
+        const nameElem = item.querySelector('p');
+        if (!nameElem) return;
+
+        const appName = nameElem.textContent.trim().toLowerCase();
 
         // 特别处理“微信”
-        if (appName === '微信') {
-            showModal('wechatModal');
+        if (appName === '微信' || appName.includes('wechat')) {
+            $('#wechatModal').modal('show');
             return;
         }
 
         // 默认提示
-        showToast(`您点击了 ${appName}`);
+        showToast(`您点击了 ${nameElem.textContent}`);
     });
 });
 
-// 模拟 Bootstrap 模态框行为
+// 模拟 Bootstrap 模态框行为（备用方案）
 function showModal(id) {
     const modal = document.getElementById(id);
     if (modal) {
