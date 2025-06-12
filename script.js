@@ -1,21 +1,22 @@
-// 时间和日期显示功能
+// 更新时间与日期
 function updateTime() {
     const now = new Date();
-    
-    // 更新时间
+
+    // 格式化时间
     const hours = now.getHours().toString().padStart(2, '0');
     const minutes = now.getMinutes().toString().padStart(2, '0');
     document.getElementById('time').textContent = `${hours}:${minutes}`;
-    
-    // 更新日期
+
+    // 格式化日期
     const year = now.getFullYear();
     const month = (now.getMonth() + 1).toString().padStart(2, '0');
     const day = now.getDate().toString().padStart(2, '0');
-    const weekday = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'][now.getDay()];
+    const weekdays = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+    const weekday = weekdays[now.getDay()];
     document.getElementById('date').textContent = `${month}-${day} ${weekday}`;
 }
 
-// 获取一言
+// 获取 Hitokoto 一言
 function fetchHitokoto() {
     fetch('https://v1.hitokoto.cn')
         .then(response => response.json())
@@ -34,36 +35,43 @@ function fetchHitokoto() {
         });
 }
 
-// 初始化时间显示并每分钟更新一次
+// 初始化时间与定时更新
 updateTime();
 setInterval(updateTime, 60000);
 
-// 初始化一言并每小时更新一次
+// 初始化一言与定时更新
 fetchHitokoto();
 setInterval(fetchHitokoto, 3600000);
 
-// 搜索功能
+// 移动微信图标到最前面
+window.addEventListener('DOMContentLoaded', () => {
+    const appGrid = document.querySelector('.app-grid');
+    const wechatItem = Array.from(document.querySelectorAll('.app-item')).find(item =>
+        item.querySelector('p')?.textContent === '微信'
+    );
+    if (wechatItem && appGrid) {
+        appGrid.prepend(wechatItem);
+    }
+});
+
+// 搜索功能实现
 const searchBox = document.querySelector('.search-box input');
 const searchButton = document.querySelector('.search-box button');
 let searchResultsVisible = false;
 
-// 创建搜索结果容器
 function createSearchResults() {
-    // 检查是否已存在搜索结果容器
     let searchResults = document.getElementById('search-results');
     if (!searchResults) {
         searchResults = document.createElement('div');
         searchResults.id = 'search-results';
         searchResults.className = 'search-results';
-        
-        // 将搜索结果容器插入到搜索栏和一言之间
-        const searchBox = document.querySelector('.search-box');
-        searchBox.parentNode.insertBefore(searchResults, document.querySelector('.hitokoto-container'));
+
+        const searchBoxContainer = document.querySelector('.search-box');
+        searchBoxContainer.parentNode.insertBefore(searchResults, document.querySelector('.hitokoto-container'));
     }
     return searchResults;
 }
 
-// 清除搜索结果
 function clearSearchResults() {
     const searchResults = document.getElementById('search-results');
     if (searchResults) {
@@ -73,60 +81,43 @@ function clearSearchResults() {
     }
 }
 
-// 执行搜索功能
 function performSearch() {
     const query = searchBox.value.trim().toLowerCase();
-    
-    // 如果搜索框为空，清除搜索结果
     if (!query) {
         clearSearchResults();
         return;
     }
-    
-    // 创建或获取搜索结果容器
+
     const searchResults = createSearchResults();
-    searchResults.innerHTML = ''; // 清空之前的结果
-    
-    // 获取所有应用元素
+    searchResults.innerHTML = '';
     const appItems = document.querySelectorAll('.app-item');
     let matchCount = 0;
-    
-    // 遍历所有应用，查找匹配项
+
     appItems.forEach(item => {
-        const appName = item.querySelector('p').textContent.toLowerCase();
-        
-        // 检查应用名称是否包含搜索关键词
-        if (appName.includes(query)) {
+        const appName = item.querySelector('p')?.textContent.toLowerCase();
+        if (appName && appName.includes(query)) {
             matchCount++;
-            
-            // 创建搜索结果项
+
             const resultItem = document.createElement('div');
             resultItem.className = 'search-result-item';
-            
-            // 复制应用图标
+
             const iconClone = item.querySelector('.app-icon').cloneNode(true);
-            
-            // 创建应用名称元素
             const nameElem = document.createElement('p');
             nameElem.textContent = item.querySelector('p').textContent;
-            
-            // 添加到结果项中
+
             resultItem.appendChild(iconClone);
             resultItem.appendChild(nameElem);
-            
-            // 添加点击事件，点击搜索结果时模拟点击原应用
+
             resultItem.addEventListener('click', () => {
                 item.click();
                 clearSearchResults();
                 searchBox.value = '';
             });
-            
-            // 添加到搜索结果容器
+
             searchResults.appendChild(resultItem);
         }
     });
-    
-    // 显示搜索结果或"无结果"提示
+
     if (matchCount > 0) {
         searchResults.style.display = 'block';
         searchResultsVisible = true;
@@ -140,27 +131,23 @@ function performSearch() {
     }
 }
 
-// 添加搜索按钮和回车事件监听
 searchButton.addEventListener('click', performSearch);
-searchBox.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') {
-        performSearch();
-    }
+searchBox.addEventListener('keypress', e => {
+    if (e.key === 'Enter') performSearch();
 });
-
-// 添加输入事件监听，实时搜索
 searchBox.addEventListener('input', performSearch);
 
-// 点击页面其他区域时隐藏搜索结果
-document.addEventListener('click', (e) => {
-    if (searchResultsVisible && 
-        !e.target.closest('.search-box') && 
-        !e.target.closest('#search-results')) {
+document.addEventListener('click', e => {
+    if (
+        searchResultsVisible &&
+        !e.target.closest('.search-box') &&
+        !e.target.closest('#search-results')
+    ) {
         clearSearchResults();
     }
 });
 
-// 创建弹窗元素
+// 创建 Toast 提示
 function createToast() {
     const toast = document.createElement('div');
     toast.className = 'toast';
@@ -168,12 +155,11 @@ function createToast() {
     return toast;
 }
 
-// 显示弹窗提示
 function showToast(message, duration = 2000) {
     const toast = createToast();
     toast.textContent = message;
     toast.classList.add('show');
-    
+
     setTimeout(() => {
         toast.classList.remove('show');
         setTimeout(() => {
@@ -182,34 +168,51 @@ function showToast(message, duration = 2000) {
     }, duration);
 }
 
-// 应用点击功能和跳转链接
+// 应用点击处理逻辑
 const appItems = document.querySelectorAll('.app-item');
-const appLinks = {
-    'bilibili': 'https://www.bilibili.com',
-    'Jellyfin': 'https://jellyfin.org',
-    'iKuai': 'https://www.ikuai8.com',
-    'Navidrome': 'https://www.navidrome.org',
-    'ubuntu': 'https://ubuntu.com',
-    'VSCode': 'https://code.visualstudio.com',
-    '讯息': '#',
-    'windows': 'https://www.microsoft.com/windows',
-    'WeChat': 'https://u.wechat.com/MKfJdmPyCBZB7Bb84ABiy0U?s=2',
-    'QQ': 'https://im.qq.com',
-    'OpenWRT': 'https://openwrt.org',
-    'Blog': '#'
-};
 
 appItems.forEach(item => {
     item.addEventListener('click', () => {
         const appName = item.querySelector('p').textContent;
-        const appUrl = appLinks[appName] || '#';
-        
-        // 显示跳转提示
-        showToast(`正在跳转到 ${appName}...`);
-        
-        // 延迟一小段时间后跳转，看到提示
-        setTimeout(() => {
-            window.open(appUrl, '_blank');
-        }, 1200);
+
+        // 特别处理“微信”
+        if (appName === '微信') {
+            showModal('wechatModal');
+            return;
+        }
+
+        // 默认提示
+        showToast(`您点击了 ${appName}`);
     });
+});
+
+// 模拟 Bootstrap 模态框行为
+function showModal(id) {
+    const modal = document.getElementById(id);
+    if (modal) {
+        modal.classList.add('show');
+        modal.style.display = 'block';
+        document.body.classList.add('modal-open');
+    }
+}
+
+function hideModal(id) {
+    const modal = document.getElementById(id);
+    if (modal) {
+        modal.classList.remove('show');
+        modal.style.display = 'none';
+        document.body.classList.remove('modal-open');
+    }
+}
+
+// 绑定关闭按钮
+document.querySelector('#wechatModal .close')?.addEventListener('click', () => {
+    hideModal('wechatModal');
+});
+
+// 点击遮罩层关闭
+document.getElementById('wechatModal')?.addEventListener('click', function(e) {
+    if (e.target === this) {
+        hideModal('wechatModal');
+    }
 });

@@ -1,128 +1,164 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>导航页</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>br1tn0y的个人导航</title>
+
+  <!-- 样式表 -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Font Awesome 图标库 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <div class="container">
-        <!-- 顶部标题和时间 -->
-        <header>
-            <div class="header-left">
-                <div class="avatar">
-                    <img src="https://api.dicebear.com/6.x/micah/svg?seed=Felix" alt="头像">
-                </div>
-                <div class="user-info">
-                    <h3 class="nickname">br1tn0y</h3>
-                    <p class="user-desc">欢迎回来</p>
-                </div>
-            </div>
-            <div class="header-right">
-                <h1 class="logo">br1tn0y<span id="time">00:00</span></h1>
-                <p id="date">正在加载日期...</p>
-            </div>
-        </header>
-
-        <!-- 一言显示 -->
-        <div class="hitokoto-container">
-            <p id="hitokoto-text">加载中...</p>
-            <p id="hitokoto-from"></p>
+  <div class="container">
+    <!-- 顶部标题和时间 -->
+    <header>
+      <div class="header-left">
+        <div class="avatar">
+          <img src="https://api.dicebear.com/6.x/micah/svg?seed=Felix" alt="头像">
         </div>
-
-        <!-- 应用区域 -->
-        <div class="app-section">
-            <div class="app-grid">
-                <!-- 第一行 -->
-                <div class="app-item">
-                    <div class="app-icon" style="background-color: #ff7070;">
-                        <i class="fa fa-play-circle"></i>
-                    </div>
-                    <p>bilibili</p>
-                </div>
-                <div class="app-item">
-                    <div class="app-icon" style="background-color: #70a1ff;">
-                        <i class="fa fa-codepen"></i>
-                    </div>
-                    <p>Jellyfin</p>
-                </div>
-                <div class="app-item">
-                    <div class="app-icon" style="background-color: #7bed9f;">
-                        <i class="fa fa-music"></i>
-                    </div>
-                    <p>iKuai</p>
-                </div>
-                <div class="app-item">
-                    <div class="app-icon" style="background-color: #5352ed;">
-                        <i class="fa fa-compass"></i>
-                    </div>
-                    <p>Navidrome</p>
-                </div>
-                <div class="app-item">
-                    <div class="app-icon" style="background-color: #ff9f43;">
-                        <i class="fa fa-linux"></i>
-                    </div>
-                    <p>ubuntu</p>
-                </div>
-                
-                <!-- 第二行 -->
-                <div class="app-item">
-                    <div class="app-icon" style="background-color: #1e90ff;">
-                        <i class="fa fa-code"></i>
-                    </div>
-                    <p>VSCode</p>
-                </div>
-                <div class="app-item">
-                    <div class="app-icon" style="background-color: #4b7bec;">
-                        <i class="fa fa-file-text"></i>
-                    </div>
-                    <p>讯息</p>
-                </div>
-                <div class="app-item">
-                    <div class="app-icon" style="background-color: #5352ed;">
-                        <i class="fa fa-windows"></i>
-                    </div>
-                    <p>windows</p>
-                </div>
-                <div class="app-item">
-                    <div class="app-icon" style="background-color: #2ed573;">
-                        <img src="https://britneyl.github.io/img/wechaticon.png" alt="Icon" style="width: 100%; height: auto;">
-                    </div>
-                    <p>WeChat</p>
-                </div>
-                <div class="app-item">
-                    <div class="app-icon" style="background-color: #70a1ff;">
-                        <i class="fa fa-qq"></i>
-                    </div>
-                    <p>QQ</p>
-                </div>
-                
-                <!-- 第三行 -->
-                <div class="app-item">
-                    <div class="app-icon" style="background-color: #ff6b81;">
-                        <i class="fa fa-wifi"></i>
-                    </div>
-                    <p>OpenWRT</p>
-                </div>
-                <div class="app-item">
-                    <div class="app-icon" style="background-color: #ff7f50;">
-                        <i class="fa fa-rss"></i>
-                    </div>
-                    <p>Blog</p>
-                </div>
-            </div>
+        <div class="user-info">
+          <h3 class="nickname">br1tn0y</h3>
+          <p class="user-desc">欢迎回来</p>
         </div>
+      </div>
+      <div class="header-right">
+        <h1 class="logo">br1tn0y<span id="time">00:00</span></h1>
+        <p id="date">正在加载日期...</p>
+      </div>
+    </header>
 
-        <!-- 底部 -->
-        <footer>
-            <div class="copyright">
-                &copy; 2025 Br1tn0y的个人导航 | All Rights Reserved
-            </div>
-        </footer>
+    <!-- 搜索框 -->
+    <div class="search-box">
+      <i class="fa fa-search"></i>
+      <input type="text" placeholder="搜索应用..." autocomplete="off">
+      <button><i class="fa fa-microphone"></i></button>
     </div>
 
-    <script src="script.js"></script>
+    <!-- 搜索提示 -->
+    <div class="search-tips">支持中文/英文关键词搜索（如：bilibili 或 视频）</div>
+
+    <!-- 一言显示 -->
+    <div class="hitokoto-container">
+      <p id="hitokoto-text">加载中...</p>
+      <p id="hitokoto-from"></p>
+    </div>
+
+    <!-- 应用区域 -->
+    <div class="app-section">
+      <h2>我的应用</h2>
+      <div class="app-grid">
+        <!-- 第一行 -->
+        <div class="app-item">
+          <div class="app-icon" style="background-color: #ff7070;">
+            <i class="fa fa-play-circle"></i>
+          </div>
+          <p>bilibili</p>
+        </div>
+        <div class="app-item">
+          <div class="app-icon" style="background-color: #70a1ff;">
+            <i class="fa fa-codepen"></i>
+          </div>
+          <p>Jellyfin</p>
+        </div>
+        <div class="app-item">
+          <div class="app-icon" style="background-color: #7bed9f;">
+            <i class="fa fa-music"></i>
+          </div>
+          <p>iKuai</p>
+        </div>
+        <div class="app-item">
+          <div class="app-icon" style="background-color: #5352ed;">
+            <i class="fa fa-compass"></i>
+          </div>
+          <p>Navidrome</p>
+        </div>
+        <div class="app-item">
+          <div class="app-icon" style="background-color: #ff9f43;">
+            <i class="fa fa-linux"></i>
+          </div>
+          <p>ubuntu</p>
+        </div>
+
+        <!-- 第二行 -->
+        <div class="app-item">
+          <div class="app-icon" style="background-color: #1e90ff;">
+            <i class="fa fa-code"></i>
+          </div>
+          <p>VSCode</p>
+        </div>
+        <div class="app-item">
+          <div class="app-icon" style="background-color: #4b7bec;">
+            <i class="fa fa-file-text"></i>
+          </div>
+          <p>讯息</p>
+        </div>
+        <div class="app-item">
+          <div class="app-icon" style="background-color: #5352ed;">
+            <i class="fa fa-windows"></i>
+          </div>
+          <p>windows</p>
+        </div>
+        <div class="app-item">
+          <div class="app-icon" style="background-color: #2ed573;">
+            <img src="https://britneyl.github.io/img/wechaticon.png" alt="Icon" style="width: 100%; height: auto;">
+          </div>
+          <p>WeChat</p>
+        </div>
+        <div class="app-item">
+          <div class="app-icon" style="background-color: #70a1ff;">
+            <i class="fa fa-qq"></i>
+          </div>
+          <p>QQ</p>
+        </div>
+
+        <!-- 第三行 -->
+        <div class="app-item">
+          <div class="app-icon" style="background-color: #ff6b81;">
+            <i class="fa fa-wifi"></i>
+          </div>
+          <p>OpenWRT</p>
+        </div>
+        <div class="app-item">
+          <div class="app-icon" style="background-color: #ff7f50;">
+            <i class="fa fa-rss"></i>
+          </div>
+          <p>Blog</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 微信二维码模态框 -->
+    <div class="modal fade" id="wechatModal" tabindex="-1" aria-labelledby="wechatModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content animate__animated animate__pulse" style="border-radius: 12px; background-color: rgba(30, 30, 60, 0.95);">
+          <div class="modal-header">
+            <h5 class="modal-title" id="wechatModalLabel">扫码联系我</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="qr-container">
+              <img src="img/wechat-qr.png" alt="微信二维码" class="qr-img">
+              <img src="img/donate-qr.png" alt="打赏二维码" class="qr-img">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 底部版权信息 -->
+    <footer>
+      <div class="copyright">
+        &copy; 2025 Br1tn0y的个人导航 | All Rights Reserved
+      </div>
+    </footer>
+  </div>
+
+  <!-- 脚本 -->
+  <script src="script.js"></script>
 </body>
-</html> 
+</html>

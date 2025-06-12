@@ -14,8 +14,6 @@ body {
     flex-direction: column;
 }
 
-
-
 /* 弹窗提示样式 */
 .toast {
     position: fixed;
@@ -226,8 +224,6 @@ header {
     background: rgba(255, 255, 255, 0.3);
 }
 
-
-
 /* 一言样式 */
 .hitokoto-container {
     margin: 15px auto 25px;
@@ -317,7 +313,106 @@ footer {
     color: rgba(255, 255, 255, 0.7);
     text-align: center;
     padding: 10px 0;
-	flex: 1;
+    flex: 1;
+}
+
+/* 微信二维码模态框样式 */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1050;
+    overflow: hidden;
+}
+
+.modal.fade.show {
+    display: block;
+}
+
+.modal-dialog {
+    position: relative;
+    width: auto;
+    margin: 0.5rem;
+    pointer-events: none;
+}
+
+.modal-dialog-centered {
+    display: flex;
+    align-items: center;
+    min-height: calc(100% - 1rem);
+    justify-content: center;
+}
+
+.modal-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    pointer-events: auto;
+    background-clip: padding-box;
+    outline: 0;
+    border: none;
+    border-radius: 12px;
+}
+
+.modal-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 1rem 1rem;
+    border-bottom: none;
+    background-color: transparent;
+}
+
+.modal-title {
+    margin-bottom: 0;
+    font-size: 1.1rem;
+    font-weight: 500;
+    line-height: 1.5;
+    color: #ffffff;
+}
+
+.close {
+    float: right;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-shadow: 0 0 0.1rem rgba(0, 0, 0, 0.5);
+    opacity: 0.5;
+    cursor: pointer;
+    user-select: none;
+}
+
+.close:hover,
+.close:focus {
+    color: #fff;
+    text-decoration: none;
+    opacity: 0.75;
+}
+
+.modal-body {
+    position: relative;
+    flex: 1 1 auto;
+    padding: 1rem;
+    color: #ffffff;
+}
+
+.qr-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.qr-img {
+    width: 110px;
+    height: 110px;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 /* 移动端适配 */
@@ -333,39 +428,39 @@ footer {
         grid-template-columns: repeat(3, 1fr);
         gap: 18px;
     }
-    
+
     header {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
         padding: 5px 0;
     }
-    
+
     .header-left {
         margin-bottom: 0;
     }
-    
+
     .header-right {
         text-align: right;
     }
-    
+
     .logo {
         font-size: 1.8rem;
     }
-    
+
     #time {
         font-size: 1.5rem;
     }
-    
+
     .avatar {
         width: 50px;
         height: 50px;
     }
-    
+
     .nickname {
         font-size: 1rem;
     }
-    
+
     .user-desc {
         font-size: 0.8rem;
     }
@@ -376,46 +471,46 @@ footer {
         grid-template-columns: repeat(3, 1fr);
         gap: 15px;
     }
-    
+
     .container {
         padding: 15px;
-		min-height: 100%; 
-		display: flex; 
-		flex-direction: column; 
+        min-height: 100%;
+        display: flex;
+        flex-direction: column;
     }
-    
+
     .app-icon {
         width: 50px;
         height: 50px;
     }
-    
+
     .logo {
         font-size: 1.5rem;
     }
-    
+
     #time {
         font-size: 1.1rem;
     }
-    
+
     .search-box {
         padding: 8px 15px;
     }
-    
+
     .app-item p {
         font-size: 0.8rem;
     }
-    
+
     .avatar {
         width: 40px;
         height: 40px;
         margin-right: 8px;
     }
-    
+
     .nickname {
         font-size: 0.9rem;
     }
-    
+
     .user-desc {
         font-size: 0.7rem;
     }
-} 
+}
