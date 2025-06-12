@@ -8,16 +8,13 @@
   <!-- 样式表 -->
   <link rel="stylesheet" href="styles.css">
 
-  <!-- Font Awesome 图标库 -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
-
   <!-- Animate.css 动画 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <link rel="stylesheet" href="css/animate.min.css">
   <!-- 引入 jQuery -->
-  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script src="js/jquery-3.6.4.min.js"></script>
 
   <!-- 引入 Bootstrap JS Bundle（含 Popper） -->
-  <script src="https://cdn.bootcdn.net/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
   <div class="container">
@@ -25,7 +22,7 @@
     <header>
       <div class="header-left">
         <div class="avatar">
-          <img src="https://api.dicebear.com/6.x/micah/svg?seed=Felix" alt="头像">
+          <img src="img/headshot.jpg" alt="头像">
         </div>
         <div class="user-info">
           <h3 class="nickname">br1tn0y</h3>
@@ -60,28 +57,34 @@
       <div class="app-grid">
         <!-- 第一行 -->
         <div class="app-item">
-          <div class="app-icon" style="background-color: #ff7070;">
-            <i class="fa fa-play-circle"></i>
+          <div class="app-icon">
+            <img src="img/wechaticon.png" alt="Icon" style="width: 100%; height: auto;">
           </div>
-          <p>bilibili</p>
+          <p>WeChat</p>
+        </div>
+        <div class="app-item">
+          <div class="app-icon">
+            <img src="img/taichi.jpg" alt="Icon" style="width: 100%; height: auto;">
+          </div>
+          <p>日行一卦</p>
         </div>
         <div class="app-item">
           <div class="app-icon" style="background-color: #70a1ff;">
-            <i class="fa fa-codepen"></i>
+            <img src="img/cloudmusic.png" alt="Icon" style="width: 100%; height: auto;">
           </div>
-          <p>Jellyfin</p>
+          <p>网易云热评</p>
         </div>
         <div class="app-item">
           <div class="app-icon" style="background-color: #7bed9f;">
-            <i class="fa fa-music"></i>
+            <img src="img/searchicon.jpg" alt="Icon" style="width: 100%; height: auto;">
           </div>
-          <p>iKuai</p>
+          <p>网盘搜</p>
         </div>
         <div class="app-item">
           <div class="app-icon" style="background-color: #5352ed;">
-            <i class="fa fa-compass"></i>
+            <img src="img/stockicon.jpg" alt="Icon" style="width: 100%; height: auto;">
           </div>
-          <p>Navidrome</p>
+          <p>随机股票公式</p>
         </div>
         <div class="app-item">
           <div class="app-icon" style="background-color: #ff9f43;">
@@ -109,12 +112,7 @@
           </div>
           <p>windows</p>
         </div>
-        <div class="app-item">
-          <div class="app-icon" style="background-color: #2ed573;">
-            <img src="https://britneyl.github.io/img/wechaticon.png" alt="Icon" style="width: 100%; height: auto;">
-          </div>
-          <p>WeChat</p>
-        </div>
+
         <div class="app-item">
           <div class="app-icon" style="background-color: #70a1ff;">
             <i class="fa fa-qq"></i>
@@ -143,10 +141,12 @@
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content" style="background-color: rgba(30, 30, 60, 0.95); border-radius: 12px;">
           <div class="modal-header">
-            <h5 class="modal-title" id="wechatModalLabel">扫码联系我</h5>
+            <h5 class="modal-title" id="wechatModalLabel">长按扫码联系我</h5>
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
+          
           <div class="modal-body text-center">
+            <div class="modal-body text-center mt-3">扫码联系我 OR 请我喝一杯咖啡</div>
             <img src="img/wechat-qr.png" alt="微信二维码" class="qr-img">
             <img src="img/donate-qr.png" alt="打赏二维码" class="qr-img">
           </div>
