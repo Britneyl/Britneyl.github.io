@@ -1,0 +1,33 @@
+[
+    {
+        "id": "202512171855997864",
+        "title": "博客的网址是？",
+        "option": [
+            "blog.mokevip.top",
+            "www.google.com",
+            "www.baidu.com",
+            "www.jd.com"
+        ],
+        "answer": "A",
+        "analysis": "blog.mokevip.top是博客网址。"
+    },
+    {
+        "id": "202512171855876018",
+        "title": "博客的网址是？",
+        "option": [
+            "小学教师资格证",
+            "四级人力资源师",
+            "一级建造师",
+            "计算机四级"
+        ],
+        "answer": "ABCD",
+        "analysis": ""
+    },
+    {
+        "id": "202512171855489",
+        "title": "博客是什么意思？",
+        "option": [],
+        "answer": "博客就是博客。",
+        "analysis": ""
+    }
+]
